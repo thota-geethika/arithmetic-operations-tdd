@@ -3,6 +3,7 @@ package com.m2p;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ArithmeticOperationsTest {
 
@@ -112,5 +113,57 @@ public class ArithmeticOperationsTest {
 
         //Assert
         assertEquals(expectedValue,actualValue);
+    }
+
+
+    //Testcases for Division
+
+    //Test case1 - when two numbers are positive
+    @Test
+    void toReturnThreeWhenNineIsDividedByThree()
+    {
+        //Arrange
+        double expectedValue = 3;
+
+        //Act
+        double actualValue = arithmeticObject.divide(9,3);
+
+        //Assert
+        assertEquals(expectedValue,actualValue);
+    }
+
+    //Test case3 - when both numbers are negative
+    @Test
+    void toReturnThreeWhenMinusNineIsDividedByMinusThree()
+    {
+        //Arrange
+        double expectedValue = 3;
+
+        //Act
+        double actualValue = arithmeticObject.divide(-9,-3);
+
+        //Assert
+        assertEquals(expectedValue,actualValue);
+    }
+
+    //Test case3 - when one number is negative and one number is positive
+    @Test
+    void toReturnMinusFourWhenEightIsDividedByMinusTwo()
+    {
+        //Arrange
+        double expectedValue = -4;
+
+        //Act
+        double actualValue = arithmeticObject.divide(8,-2);
+
+        //Assert
+        assertEquals(expectedValue,actualValue);
+    }
+
+    //Test case 4 - when the divisor is zero
+    @Test
+    void toThrowExceptionWhenDivideByZero()
+    {
+        assertThrows(ArithmeticException.class, () -> arithmeticObject.divide(5,0));
     }
 }
